@@ -13,6 +13,32 @@
         
         <guid>https://YPatrickW.github.io/p/%E5%89%91%E6%8C%87offer/</guid>
         <description>&lt;img src="https://YPatrickW.github.io/p/%E5%89%91%E6%8C%87offer/cover.jpg" alt="Featured image of post 剑指offer" /&gt;&lt;h2 id=&#34;查找算法&#34;&gt;查找算法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;平均查找长度(ASL)
+&lt;ul&gt;
+&lt;li&gt;$ASL = P_i * \sum C_i$
+&lt;ul&gt;
+&lt;li&gt;$P_i$: 第$i$​个数据元素的概率&lt;/li&gt;
+&lt;li&gt;$C_i$: 找到第$i$​个数据元素已比较过的次数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;顺序查找
+&lt;ul&gt;
+&lt;li&gt;$ASL = 1/n * (1+2+\dots +n) = \frac{n+1}{2}$&lt;/li&gt;
+&lt;li&gt;时间复杂度$O(n)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;二分查找
+&lt;ul&gt;
+&lt;li&gt;最坏$k$次二分找到&lt;/li&gt;
+&lt;li&gt;时间复杂度$O(logn)$&lt;/li&gt;
+&lt;li&gt;数据元素必须有序&lt;/li&gt;
+&lt;li&gt;防止溢出：$mid = left + (right-left) // 2$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;搜索算法&#34;&gt;搜索算法&lt;/h2&gt;
 </description>
         </item>
