@@ -13,7 +13,8 @@
       <pubDate>Sun, 17 Oct 2021 19:03:38 +0800</pubDate>
       
       <guid>https://YPatrickW.github.io/p/%E5%89%91%E6%8C%87offer/</guid>
-      <description>查找算法  平均查找长度(ASL)  $ASL = P_i * \sum C_i$  $P_i$: 第$i$​个数据元素的概率 $C_i$: 找到第$i$​个数据元素已比较过的次数     顺序查找  $ASL = 1/n * (1+2+\dots +n) = \frac{n+1}{2}$ 时间复杂度$O(n)$   二分查找  最坏$k$次二分找到 时间复杂度$O(logn)$ 数据元素必须有序 防止溢出：$mid = left + (right-left) // 2$    搜索算法 </description>
+      <description>查找算法  平均查找长度(ASL)  $ASL = P_i * \sum C_i$  $P_i$: 第$i$​个数据元素的概率 $C_i$: 找到第$i$​个数据元素已比较过的次数     顺序查找  $ASL = 1/n * (1+2+\dots +n) = \frac{n+1}{2}$ 时间复杂度$O(n)$   二分查找  最坏$k$次二分找到 时间复杂度$O(logn)$ 数据元素必须有序 防止溢出：$mid = left + (right-left) // 2$    搜索算法 二叉树的遍历 二叉树
+ 前序遍历：根左右  3-9-20-15-7   中序遍历：左根右  9-3-15-20-7   后序遍历：左右根  9-15-7-20-3   前序遍历和中序遍历可以还原二叉树 前序遍历和后序遍历不可以还原二叉树  </description>
     </item>
     
   </channel>
