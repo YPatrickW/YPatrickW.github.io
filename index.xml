@@ -82,10 +82,31 @@ cd apex
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;安装失败可以尝试使用：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python setup.py install
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python3 setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决windows和linux编码不兼容问题：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim 文件名.sh
+: set ff=unix
+esc :wq
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hugo命令&#34;&gt;Hugo命令&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Blog起始页启动&lt;strong&gt;git bash&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo
+cd ./public
+git add .
+git commit -m &amp;quot;注释&amp;quot;
+git push origin main
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改&lt;strong&gt;git bash&lt;/strong&gt;默认分支为&lt;em&gt;&lt;strong&gt;main&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global init.defaultBranch main
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

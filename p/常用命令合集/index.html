@@ -9,7 +9,7 @@
 <meta property='og:description' content='记录高频使用的命令'>
 <meta property='og:url' content='https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/'>
 <meta property='og:site_name' content='Patrick&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2021-11-29T14:32:55&#43;08:00'/><meta property='article:modified_time' content='2021-11-29T14:32:55&#43;08:00'/><meta property='og:image' content='https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Git' /><meta property='article:tag' content='Hugo' /><meta property='article:tag' content='Conda' /><meta property='article:published_time' content='2021-11-29T14:32:55&#43;08:00'/><meta property='article:modified_time' content='2021-11-29T14:32:55&#43;08:00'/><meta property='og:image' content='https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg' />
 <meta name="twitter:title" content="常用命令合集">
 <meta name="twitter:description" content="记录高频使用的命令"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg' /><style>
@@ -219,10 +219,31 @@ cd apex
 </code></pre></li>
 <li>
 <p>安装失败可以尝试使用：</p>
-<pre tabindex="0"><code>python setup.py install
+<pre tabindex="0"><code>python3 setup.py install
 </code></pre></li>
 </ul>
 </li>
+<li>
+<p>解决windows和linux编码不兼容问题：</p>
+<pre tabindex="0"><code>vim 文件名.sh
+: set ff=unix
+esc :wq
+</code></pre></li>
+</ul>
+<h2 id="hugo命令">Hugo命令</h2>
+<ul>
+<li>
+<p>Blog起始页启动<strong>git bash</strong></p>
+<pre tabindex="0"><code>hugo
+cd ./public
+git add .
+git commit -m &quot;注释&quot;
+git push origin main
+</code></pre></li>
+<li>
+<p>修改<strong>git bash</strong>默认分支为<em><strong>main</strong></em></p>
+<pre tabindex="0"><code>git config --global init.defaultBranch main
+</code></pre></li>
 </ul>
 
 </section>
@@ -233,6 +254,12 @@ cd apex
     <section class="article-tags">
         
             <a href="/tags/linux/">Linux</a>
+        
+            <a href="/tags/git/">Git</a>
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+            <a href="/tags/conda/">Conda</a>
         
     </section>
 
@@ -428,6 +455,7 @@ cd apex
   <ol>
     <li><a href="#conda-命令">Conda 命令</a></li>
     <li><a href="#linux命令">Linux命令</a></li>
+    <li><a href="#hugo命令">Hugo命令</a></li>
   </ol>
 </nav>
                 </div>
