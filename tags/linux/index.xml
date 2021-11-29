@@ -13,16 +13,18 @@
       <pubDate>Mon, 29 Nov 2021 14:32:55 +0800</pubDate>
       
       <guid>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</guid>
-      <description>Conda 命令 下载miniconda：
-wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh 激活conda：
- 进入miniconda安装位置  cd ./bin source activate 创建环境：
-conda create -n name python=版本 添加镜像：
-  查看channel
-conda config --show   添加清华镜像
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ conda config --set show_channel_urls yes conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/   安装Pytorch:
-  查看cuda版本
-cat /usr/local/cuda/version.json nvidia-smi   conda install pytorch torchvision torchaudio cudatoolkit=cuda版本 Linux命令 查看GPU状态：
-  使用nvidia-smi</description>
+      <description>Linux命令 查看GPU状态：
+  使用nvidia-smi
+nvidia-smi   安装gpustat
+pip install gpustat gpustat   新开一个terminal查看：
+watch -n 0.1 nvidia-smi   安装APEX加速库：
+  可以下载到任意位置
+  下载命令
+git clone https://github.com/NVIDIA/apex cd apex   安装命令：
+  官方方法：
+pip install -v --disable-pip-version-check --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./   安装失败可以尝试使用：
+python3 setup.py install     解决windows和linux编码不兼容问题：
+vim 文件名.sh : set ff=unix esc :wq   Conda 命令 下载miniconda：</description>
     </item>
     
   </channel>

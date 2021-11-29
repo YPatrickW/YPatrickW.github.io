@@ -12,7 +12,54 @@
         <pubDate>Mon, 29 Nov 2021 14:32:55 +0800</pubDate>
         
         <guid>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</guid>
-        <description>&lt;img src="https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" alt="Featured image of post 常用命令合集" /&gt;&lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
+        <description>&lt;img src="https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" alt="Featured image of post 常用命令合集" /&gt;&lt;h2 id=&#34;linux命令&#34;&gt;Linux命令&lt;/h2&gt;
+&lt;p&gt;查看GPU状态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用nvidia-smi&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装gpustat&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install gpustat
+gpustat
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新开一个terminal查看：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;watch -n 0.1 nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装APEX加速库：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以下载到任意位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载命令&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/NVIDIA/apex
+cd apex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;官方方法：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install -v --disable-pip-version-check --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装失败可以尝试使用：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python3 setup.py install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决windows和linux编码不兼容问题：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim 文件名.sh
+: set ff=unix
+esc :wq
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
 &lt;p&gt;下载miniconda：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;激活conda：&lt;/p&gt;
@@ -46,54 +93,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=cuda版本
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;linux命令&#34;&gt;Linux命令&lt;/h2&gt;
-&lt;p&gt;查看GPU状态：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用nvidia-smi&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nvidia-smi
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装gpustat&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install gpustat
-gpustat
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;新开一个terminal查看：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;watch -n 0.1 -d nvidia-smi
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;安装APEX加速库：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;可以安装到任意位置&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下载命令&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/NVIDIA/apex
-cd apex
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装命令：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;官方方法：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install -v --disable-pip-version-check --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装失败可以尝试使用：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python3 setup.py install
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;解决windows和linux编码不兼容问题：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim 文件名.sh
-: set ff=unix
-esc :wq
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;hugo命令&#34;&gt;Hugo命令&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;hugo命令&#34;&gt;Hugo命令&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Blog起始页启动&lt;strong&gt;git bash&lt;/strong&gt;&lt;/p&gt;
@@ -101,11 +101,22 @@ esc :wq
 cd ./public
 git add .
 git commit -m &amp;quot;注释&amp;quot;
-git push origin main
+git push -u origin main
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;git命令&#34;&gt;Git命令&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;修改&lt;strong&gt;git bash&lt;/strong&gt;默认分支为&lt;em&gt;&lt;strong&gt;main&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global init.defaultBranch main
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加远程分支&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git remote add &amp;quot;remote name&amp;quot; xxx.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建分支&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git checkout -b &amp;quot;branch name&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
