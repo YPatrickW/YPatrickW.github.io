@@ -6,7 +6,90 @@
         <description>Recent content on Patrick&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 17 Oct 2021 19:03:38 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 29 Nov 2021 14:32:55 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>常用命令合集</title>
+        <link>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</link>
+        <pubDate>Mon, 29 Nov 2021 14:32:55 +0800</pubDate>
+        
+        <guid>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</guid>
+        <description>&lt;img src="https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" alt="Featured image of post 常用命令合集" /&gt;&lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
+&lt;p&gt;下载miniconda：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;激活conda：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入miniconda安装位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ./bin
+source activate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建环境：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda create -n name python=版本
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;添加镜像：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看channel&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda config --show
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加清华镜像&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装Pytorch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看cuda版本&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cat /usr/local/cuda/version.json 
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=cuda版本
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;linux命令&#34;&gt;Linux命令&lt;/h2&gt;
+&lt;p&gt;查看GPU状态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用nvidia-smi&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装gpustat&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install gpustat
+gpustat
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新开一个terminal查看：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;watch -n 0.1 -d nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装APEX加速库：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以安装到任意位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载命令&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/NVIDIA/apex
+cd apex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;官方方法：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pip install -v --disable-pip-version-check --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装失败可以尝试使用：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;python setup.py install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>剑指offer</title>
         <link>https://YPatrickW.github.io/p/%E5%89%91%E6%8C%87offer/</link>
         <pubDate>Sun, 17 Oct 2021 19:03:38 +0800</pubDate>
@@ -33,7 +116,8 @@
 &lt;li&gt;二分查找
 &lt;ul&gt;
 &lt;li&gt;最坏$k$次二分找到&lt;/li&gt;
-&lt;li&gt;时间复杂度$O(logn)$&lt;/li&gt;
+&lt;li&gt;时间复杂度$O(logn)$​&lt;/li&gt;
+&lt;li&gt;$mid = (right+left) // 2$&lt;/li&gt;
 &lt;li&gt;数据元素必须有序&lt;/li&gt;
 &lt;li&gt;防止溢出：$mid = left + (right-left) // 2$&lt;/li&gt;
 &lt;/ul&gt;
