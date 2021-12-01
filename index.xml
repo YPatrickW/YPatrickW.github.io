@@ -58,6 +58,20 @@ cd apex
 : set ff=unix
 esc :wq
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后台不挂断：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nohup xxx.sh &amp;amp;
+appending output to nohup.out
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;出现第二行代码即成功&lt;/p&gt;
+&lt;p&gt;&amp;amp;：后台执行，终端退出仍执行&lt;/p&gt;
+&lt;p&gt;:smirk:&lt;strong&gt;谨记：2021年12月1日训练bert模型没有使用nohup，然后直接关闭掉了终端，导致从头开始训练!!&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看进程PID&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ps -aux | grep &amp;quot;xxx.sh&amp;quot;
+或者
+htop
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
 &lt;p&gt;下载miniconda：&lt;/p&gt;
