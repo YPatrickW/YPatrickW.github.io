@@ -24,7 +24,7 @@ git clone https://github.com/NVIDIA/apex cd apex   安装命令：
   官方方法：
 pip install -v --disable-pip-version-check --no-cache-dir --global-option=&amp;quot;--cpp_ext&amp;quot; --global-option=&amp;quot;--cuda_ext&amp;quot; ./   安装失败可以尝试使用：
 python3 setup.py install     解决windows和linux编码不兼容问题：
-vim 文件名.sh : set ff=unix esc :wq   后台不挂断：
+vim xxx.sh : set ff=unix esc :wq   后台不挂断：
 nohup xxx.</description>
     </item>
     

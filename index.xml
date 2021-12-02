@@ -6,7 +6,16 @@
         <description>Recent content on Patrick&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 29 Nov 2021 14:32:55 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 Dec 2021 16:31:25 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Todo list &amp; Daily log</title>
+        <link>https://YPatrickW.github.io/p/todo-list-daily-log/</link>
+        <pubDate>Thu, 02 Dec 2021 16:31:25 +0800</pubDate>
+        
+        <guid>https://YPatrickW.github.io/p/todo-list-daily-log/</guid>
+        <description>&lt;img src="https://YPatrickW.github.io/p/todo-list-daily-log/cover.jpg" alt="Featured image of post Todo list &amp; Daily log" /&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Dec 2&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>常用命令合集</title>
         <link>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</link>
         <pubDate>Mon, 29 Nov 2021 14:32:55 +0800</pubDate>
@@ -54,7 +63,7 @@ cd apex
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;解决windows和linux编码不兼容问题：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim 文件名.sh
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim xxx.sh
 : set ff=unix
 esc :wq
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -68,9 +77,11 @@ appending output to nohup.out
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;查看进程PID&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ps -aux | grep &amp;quot;xxx.sh&amp;quot;
-或者
-htop
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1. ps -aux | grep &amp;quot;xxx.sh&amp;quot;
+
+2. htop
+
+3. top -u user_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
@@ -83,7 +94,7 @@ htop
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ./bin
 source activate
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建环境：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda create -n name python=版本
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda create -n name python=xxx(e.g. 3.7)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;添加镜像：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -106,7 +117,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 &lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;nvidia-smi
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=cuda版本
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=xxx(e.g. 11.3)
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;hugo命令&#34;&gt;Hugo命令&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -114,7 +125,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo
 cd ./public
 git add .
-git commit -m &amp;quot;注释&amp;quot;
+git commit -m &amp;quot;xxx&amp;quot;
 git push -u origin main
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
