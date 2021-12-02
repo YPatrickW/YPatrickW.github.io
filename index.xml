@@ -13,6 +13,28 @@
         
         <guid>https://YPatrickW.github.io/p/todo-list-daily-log/</guid>
         <description>&lt;img src="https://YPatrickW.github.io/p/todo-list-daily-log/cover.jpg" alt="Featured image of post Todo list &amp; Daily log" /&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;Dec 2&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Todo&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将[cls]换成category label进行finetune和test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置evaluate所需的Java环境&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改简历，准备投下实习&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改完Pretrain和Finetune的代码 🌟&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -82,6 +104,12 @@ appending output to nohup.out
 2. htop
 
 3. top -u user_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复制文件 &amp;amp; 移动文件 &amp;amp; 改名&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cp file/dir dir
+mv file/dir dir
+mv old_name new_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;

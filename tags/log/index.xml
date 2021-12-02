@@ -13,7 +13,13 @@
       <pubDate>Thu, 02 Dec 2021 16:31:25 +0800</pubDate>
       
       <guid>https://YPatrickW.github.io/p/todo-list-daily-log/</guid>
-      <description>Dec 2</description>
+      <description>Dec 2
+  Todo
+  将[cls]换成category label进行finetune和test
+  配置evaluate所需的Java环境
+  修改简历，准备投下实习
+    Done
+ 修改完Pretrain和Finetune的代码 🌟    </description>
     </item>
     
   </channel>
