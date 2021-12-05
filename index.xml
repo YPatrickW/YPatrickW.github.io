@@ -21,17 +21,32 @@
 &lt;p&gt;将[cls]换成category label进行finetune和test&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;配置evaluate所需的Java环境&lt;/p&gt;
+&lt;p&gt;配置evaluate所需的Java环境🛩️&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;修改简历，准备投下实习&lt;/p&gt;
+&lt;p&gt;修改简历，准备投下实习🛩️&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改完Pretrain和Finetune的代码 🌟&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Dec 3&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;修改完Pretrain和Finetune的代码 🌟&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Todo&lt;/strong&gt;&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;WOTS大作业&lt;/li&gt;
+&lt;li&gt;投简历，找实习&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Done&lt;/strong&gt;&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;实习简历修改完毕🌟&lt;/li&gt;
+&lt;li&gt;Java环境配置完成🌟&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -111,6 +126,13 @@ appending output to nohup.out
 mv file/dir dir
 mv old_name new_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看所有者和权限 &amp;amp; 修改权限：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ls -l
+chmod xxx(e.g. 777) xxx(e.g. xxx.sh)
+chmod xxx(e.g. u=rwx, g=rx, o=r) xxx(e.g. xxx.sh)
+chmod +(e.g. r,w,x) xxx(e.g. xxx.sh) (add permission for all)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;conda-命令&#34;&gt;Conda 命令&lt;/h2&gt;
 &lt;p&gt;下载miniconda：&lt;/p&gt;
@@ -146,6 +168,17 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=xxx(e.g. 11.3)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;个人用户配置java环境：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar -zxvf xxx.gz
+cd ~
+vi .bash_profile
+添加：
+export JAVA_HOME=/home/std/java/jdk1.8.0_301
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+export JRE_HOME=$JAVA_HOME/jre
+source .bash_profile
+jave -version
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;hugo命令&#34;&gt;Hugo命令&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;

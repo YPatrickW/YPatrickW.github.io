@@ -94,7 +94,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/tech/" style="background-color: #fafafa; color: #fff;">
+            <a href="/categories/tech/" style="background-color: ; color: ;">
                 Tech
             </a>
         
@@ -139,7 +139,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -217,6 +217,13 @@ appending output to nohup.out
 mv file/dir dir
 mv old_name new_name
 </code></pre></li>
+<li>
+<p>查看所有者和权限 &amp; 修改权限：</p>
+<pre tabindex="0"><code>ls -l
+chmod xxx(e.g. 777) xxx(e.g. xxx.sh)
+chmod xxx(e.g. u=rwx, g=rx, o=r) xxx(e.g. xxx.sh)
+chmod +(e.g. r,w,x) xxx(e.g. xxx.sh) (add permission for all)
+</code></pre></li>
 </ul>
 <h2 id="conda-命令">Conda 命令</h2>
 <p>下载miniconda：</p>
@@ -252,6 +259,17 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 </code></pre></li>
 </ul>
 <pre tabindex="0"><code>conda install pytorch torchvision torchaudio cudatoolkit=xxx(e.g. 11.3)
+</code></pre><p>个人用户配置java环境：</p>
+<pre tabindex="0"><code>tar -zxvf xxx.gz
+cd ~
+vi .bash_profile
+添加：
+export JAVA_HOME=/home/std/java/jdk1.8.0_301
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+export JRE_HOME=$JAVA_HOME/jre
+source .bash_profile
+jave -version
 </code></pre><h2 id="hugo命令">Hugo命令</h2>
 <ul>
 <li>
