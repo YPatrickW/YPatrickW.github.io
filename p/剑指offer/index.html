@@ -169,15 +169,125 @@
 </li>
 <li>二分查找
 <ul>
-<li>最坏$k$次二分找到</li>
-<li>时间复杂度$O(logn)$​</li>
-<li>$mid = (right+left) // 2$</li>
-<li>数据元素必须有序</li>
-<li>防止溢出：$mid = left + (right-left) // 2$</li>
+<li>
+<p>最坏$k$次二分找到</p>
+</li>
+<li>
+<p>时间复杂度$O(logn)$​</p>
+</li>
+<li>
+<p>$mid = (right+left) // 2$</p>
+</li>
+<li>
+<p>数据元素必须有序</p>
+</li>
+<li>
+<p>防止溢出：$mid = left + (right-left) // 2$​</p>
+<pre tabindex="0"><code>if num &lt; list[midpoint]:
+	right = midpoint-1
+else:
+	left = midpoint+1
+</code></pre></li>
 </ul>
 </li>
 </ul>
-<h2 id="搜索算法">搜索算法</h2>
+<h2 id="排序算法">排序算法</h2>
+<ul>
+<li>
+<p>冒泡排序</p>
+<ul>
+<li>
+<p>对无序表进行多次比较交换</p>
+</li>
+<li>
+<p>算法复杂度为$O(n^2)$​</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> 
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>选择排序</p>
+<ul>
+<li>
+<p>每次仅进行一次交换，记录最大项的所在位置，再和本次的最后一项进行交换（只进行一次交换）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="err">：</span>
+	<span class="n">max_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">max_pos</span><span class="p">]:</span>
+            <span class="n">max_pos</span> <span class="o">=</span> <span class="n">j</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">max_pos</span><span class="p">]</span>
+    <span class="nb">list</span><span class="p">[</span><span class="n">max_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+</code></pre></div><p>![选择排序](D:\blog\content\post\剑指offer\selected sort.png)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>插入排序</p>
+<ul>
+<li>
+<p>算法复杂度为$O(n^2)$</p>
+</li>
+<li>
+<p>维持一个已经排好序的子列表，不断扩充子列表直到全表</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
+    <span class="n">cur_val</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">while</span> <span class="n">pos</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">list</span><span class="p">[</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">cur_val</span><span class="p">:</span>
+        <span class="nb">list</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span><span class="o">-</span><span class="mi">1</span>
+    <span class="nb">list</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_val</span>
+</code></pre></div><p>![插入排序](D:\blog\content\post\剑指offer\insert sort.png)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>归并排序</p>
+<ul>
+<li>
+<p>递归算法，将数据表持续分裂为两半，对两半进行归并排序</p>
+</li>
+<li>
+<p>复杂度为$O(nlogn)$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span>
+	<span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+	<span class="n">left</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="nb">list</span><span class="p">[:</span><span class="n">mid</span><span class="p">])</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">mid</span><span class="p">:])</span>
+    <span class="n">merged</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">merged</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">right</span> <span class="k">if</span> <span class="n">right</span> <span class="k">else</span> <span class="n">left</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">merged</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>快速排序</p>
+<ul>
+<li>
+<p>递归算法，依据一个“中值”数据将数据表分为两半：小于“中值”的一半和大于“中值”的一半，每一部分进行快速排序</p>
+</li>
+<li>
+<p>选定中值</p>
+</li>
+<li>
+<p>左标右移，右标左移，左标遇到数比中值大就停止，右标遇到比中值小就停止，交换左右标的值，两标相错就结束移动</p>
+</li>
+<li>
+<p>算法复杂度为$O(nlogn)$</p>
+<p>![快速排序](D:\blog\content\post\剑指offer\quick sort.png)</p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="二叉树的遍历">二叉树的遍历</h2>
 <p><figure 
 	
@@ -216,6 +326,10 @@
 </li>
 <li>前序遍历和中序遍历可以还原二叉树</li>
 <li>前序遍历和后序遍历不可以还原二叉树</li>
+</ul>
+<h1 id="递归">递归</h1>
+<ul>
+<li>结束条件和调用自身</li>
 </ul>
 
 </section>
@@ -357,7 +471,7 @@
         
             2020 - 
         
-        2021 Patrick&#39;s Blog
+        2022 Patrick&#39;s Blog
     </section>
     
     <section class="powerby">
@@ -467,7 +581,7 @@
                     <nav id="TableOfContents">
   <ol>
     <li><a href="#查找算法">查找算法</a></li>
-    <li><a href="#搜索算法">搜索算法</a></li>
+    <li><a href="#排序算法">排序算法</a></li>
     <li><a href="#二叉树的遍历">二叉树的遍历</a></li>
   </ol>
 </nav>
