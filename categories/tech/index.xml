@@ -6,26 +6,7 @@
     <description>Recent content in Tech on Patrick&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 16:31:25 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Todo list &amp; Daily log</title>
-      <link>https://YPatrickW.github.io/p/todo-list-daily-log/</link>
-      <pubDate>Thu, 02 Dec 2021 16:31:25 +0800</pubDate>
-      
-      <guid>https://YPatrickW.github.io/p/todo-list-daily-log/</guid>
-      <description>Dec 2
-  Todo
-  将[cls]换成category label进行finetune和test🛩️(12.10)
-  配置evaluate所需的Java环境🛩️(12.3)
-  修改简历，准备投下实习🛩️(12.3)
-    Done
-  修改完Pretrain和Finetune的代码 🌟
-  Dec 3
- Todo  WOTS大作业🛩️(12.7，12.8) 投简历，找实习🛩️(12.6)   Done  实习简历修改完毕🌟 Java环境配置完成🌟    Dec 6
- Todo  阅读Prompt相关论文 修改模型🛩️(12.10)   Done  MSRA简历已投，较为positive的回复(没有Headcount)🌟 跑通了所有的代码🌟 测试效果较差🙅‍♂️    Dec 7 &amp;amp; 8
- Done  WOTS大作业完成🌟    Dec 10</description>
-    </item>
-    
+    <lastBuildDate>Mon, 29 Nov 2021 14:32:55 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>常用命令合集</title>
       <link>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</link>
