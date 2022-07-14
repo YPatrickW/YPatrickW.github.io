@@ -6,7 +6,23 @@
     <description>Recent content in Posts on Patrick&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Nov 2021 14:32:55 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 16:10:24 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Key points in Research</title>
+      <link>https://YPatrickW.github.io/p/key-points-in-research/</link>
+      <pubDate>Fri, 01 Jul 2022 16:10:24 +0800</pubDate>
+      
+      <guid>https://YPatrickW.github.io/p/key-points-in-research/</guid>
+      <description>上采样  将图像采样到更高的分辨率（由小分辨率到大分辨率） 将高维特征进行放大  Unpooling   Nearest Neighbor
+Nearest Neighbor
+  Bed of Nails
+Bed of Nails
+  Max unpooling
+ 根据索引信息，反池化填充    Max unpooling
+Transposed Convolution (转置卷积)  对特征进行padding，然后进行卷积 Output_size = (input_size -1) * stride + filter - 2 * same padding + output padding  ![Max unpooling](D:\blog\content\post\key_points\Transpose Conv.png)
+def trans_conv(X, K): h, w = K.shape Y = torch.</description>
+    </item>
+    
     <item>
       <title>常用命令合集</title>
       <link>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</link>

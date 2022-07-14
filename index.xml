@@ -6,7 +6,149 @@
         <description>Recent content on Patrick&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 29 Nov 2021 14:32:55 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Jul 2022 16:10:24 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Key points in Research</title>
+        <link>https://YPatrickW.github.io/p/key-points-in-research/</link>
+        <pubDate>Fri, 01 Jul 2022 16:10:24 +0800</pubDate>
+        
+        <guid>https://YPatrickW.github.io/p/key-points-in-research/</guid>
+        <description>&lt;img src="https://YPatrickW.github.io/p/key-points-in-research/cover.png" alt="Featured image of post Key points in Research" /&gt;&lt;h2 id=&#34;上采样&#34;&gt;上采样&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;将图像采样到更高的分辨率（由小分辨率到大分辨率）&lt;/li&gt;
+&lt;li&gt;将高维特征进行放大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;unpooling&#34;&gt;Unpooling&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Nearest Neighbor&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling1.png&#34; &gt;
+		&lt;img src=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling1.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Nearest Neighbor&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Nearest Neighbor&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bed of Nails&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling2.png&#34; &gt;
+		&lt;img src=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling2.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Bed of Nails&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Bed of Nails&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Max unpooling&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根据索引信息，反池化填充&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling3.png&#34; &gt;
+		&lt;img src=&#34;https://YPatrickW.github.io/D:%5cblog%5ccontent%5cpost%5ckey_points%5cuppooling3.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;Max unpooling&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;Max unpooling&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;transposed-convolution-转置卷积&#34;&gt;Transposed Convolution (转置卷积)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对特征进行padding，然后进行卷积&lt;/li&gt;
+&lt;li&gt;Output_size = (input_size -1) * stride + filter - 2 * same padding + output padding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![Max unpooling](D:\blog\content\post\key_points\Transpose Conv.png)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;trans_conv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;K&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;K&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;Y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zeros&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]):&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;Y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;w&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;X&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;K&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;高斯滤波&#34;&gt;高斯滤波&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对整幅图像进行加权平均的过程，每一个像素点都由本身和领域内的其他像素值加权平均后得到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;高斯噪声&#34;&gt;高斯噪声&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;概率密度服从正态分布的一类噪声&lt;/li&gt;
+&lt;li&gt;高斯白噪声：功率谱密度为均匀分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;高斯函数&#34;&gt;高斯函数&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一维高斯分布&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+G（x）= \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{x^2}{2\sigma^2}}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二维高斯分布
+$$
+G（x）= \frac{1}{\sqrt{2\pi}\sigma^2}e^{-\frac{x^2+y^2}{2\sigma^2}}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;高斯核&#34;&gt;高斯核&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;根据坐标计算高斯模板&lt;/li&gt;
+&lt;li&gt;保证高斯模板加起来为1&lt;/li&gt;
+&lt;li&gt;输入图像乘以相关核&lt;/li&gt;
+&lt;li&gt;相加得到中心点的高斯滤波的值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;retinex-theory&#34;&gt;Retinex Theory&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;原始图像$S(x,y)$可被表示为为入射分量$L(x,y)$和反射分量$R(x,y)$的乘积
+&lt;ul&gt;
+&lt;li&gt;$L(x,y)$： 环境光的照射分量&lt;/li&gt;
+&lt;li&gt;$R(x,y)$： 携带图像细节信息的目标物体的反射分量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;从原始图像$S(x,y)$估计出光照分量$L(x,y)$, 从而分解出反射分量$R(x,y)$, 消除光照不均的影响&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;亮度直方图&#34;&gt;亮度直方图&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;关于灰度级的分布函数，灰度值范围$[0, 255]$&lt;/li&gt;
+&lt;li&gt;将图像种所有的像素点，按照灰度值的大小，统计其出现的频率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;adainadaptive-instance-normalization&#34;&gt;AdaIN(Adaptive Instance Normalization)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;自适应实例标准化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将Content image(x)特征的均值和方差对齐到Style image(y)的均值和方差&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特征的均值和方差代表着图片的风格
+$$
+AdaIn(x,y) = \sigma(y)(\frac{x-\mu(x)}{\sigma(x)})+\mu(y)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>常用命令合集</title>
         <link>https://YPatrickW.github.io/p/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</link>
         <pubDate>Mon, 29 Nov 2021 14:32:55 +0800</pubDate>
