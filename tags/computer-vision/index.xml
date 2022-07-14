@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deep Learning on Patrick&#39;s Blog</title>
-    <link>https://YPatrickW.github.io/tags/deep-learning/</link>
-    <description>Recent content in Deep Learning on Patrick&#39;s Blog</description>
+    <title>Computer Vision on Patrick&#39;s Blog</title>
+    <link>https://YPatrickW.github.io/tags/computer-vision/</link>
+    <description>Recent content in Computer Vision on Patrick&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jul 2022 16:10:24 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 16:10:24 +0800</lastBuildDate><atom:link href="https://YPatrickW.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Key Points in Research</title>
       <link>https://YPatrickW.github.io/p/key-points-in-research/</link>
