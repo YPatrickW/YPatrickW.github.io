@@ -129,13 +129,12 @@
 &lt;p&gt;可以用于消除高斯噪声&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;高斯滤波只考虑了相邻像素空间位置层面的影响，没有考虑值域的影响
-$$
-\begin{align*}
-G[I]&lt;em&gt;p &amp;amp;= \sum&lt;/em&gt;{q\in S}G_\sigma(\Vert p-q \Vert)I_q \&lt;br&gt;
-q &amp;amp;: \text{邻域空间} \&lt;br&gt;
-G_\sigma(x) &amp;amp;: 2d \text{高斯核}
-\end{align*}
+&lt;p&gt;高斯滤波只考虑了相邻像素空间位置层面的影响，没有考虑值域的影响&lt;/p&gt;
+&lt;p&gt;$$
+G[I]&lt;em&gt;p = \sum&lt;/em&gt;{q\in S}G_\sigma(\Vert p-q \Vert)I_q
+$$&lt;/p&gt;
+&lt;p&gt;$$
+q : \text{邻域空间} \quad G_\sigma(x) : 2d \text{高斯核}
 $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -175,7 +174,9 @@ $$&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
-BF[I]&lt;em&gt;p = \frac{1}{W_p}\sum&lt;/em&gt;{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q \\&lt;br&gt;
+BF[I]&lt;em&gt;p = \frac{1}{W_p}\sum&lt;/em&gt;{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q
+$$&lt;/p&gt;
+&lt;p&gt;$$
 W_p = \sum_{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q
 $$&lt;/p&gt;
 &lt;p&gt;&lt;figure 
@@ -218,26 +219,28 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;照度估计：将图像转换到对数域对整幅图像求均值&lt;/p&gt;
 &lt;p&gt;$$
-R(x,y) \approx log(I(x,y))-log(F(x,y)*I(x,y)) \\&lt;br&gt;
-*: Convolution \\&lt;br&gt;
-F(x,y):Surrouding \quad function
+R(x,y) \approx log(I(x,y))-log(F(x,y)*I(x,y))
+$$&lt;/p&gt;
+&lt;p&gt;$$
+*: Convolution \quad F(x,y):Surrouding \quad function
 $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Single-scale Retinex(SSR)&lt;/p&gt;
 &lt;p&gt;$$
-SSR_i(x,y)=log(I_i(x,y))-log(G_\sigma*I_i(x,y))\\&lt;br&gt;
-i \in R,G,B \\&lt;br&gt;
-G_\sigma(x,y) = Ke^{-\frac{x^2+y^2}{2\sigma^2}}\\&lt;br&gt;
+SSR_i(x,y)=log(I_i(x,y))-log(G_\sigma*I_i(x,y))
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+i \in R,G,B \quad G_\sigma(x,y) = Ke^{-\frac{x^2+y^2}{2\sigma^2}}\quad
 \int\int G_\sigma(x,y)dxdy =1
 $$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Multi-scale Retinex(MSR)
+&lt;ul&gt;
+&lt;li&gt;Multi-scale Retinex(MSR)
 $$
 MSR_i(x,y,\sigma_k) = \sum_{k=1}^nw_kSSR_i(x,y,\sigma_k)
-$$&lt;/p&gt;
-&lt;/li&gt;
+$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;亮度直方图&#34;&gt;亮度直方图&lt;/h2&gt;
 &lt;ul&gt;
@@ -264,8 +267,9 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;Log 操作：压缩图像对比度，使图像变得模糊
 $$
-s = c * log(1+r) \\&lt;br&gt;
-c = 255/(log(1+max(r))) \\&lt;br&gt;
+s = c * log(1+r) \quad c = 255/(log(1+max(r)))
+$$&lt;/p&gt;
+&lt;p&gt;$$
 r: \text{输入像素} \quad c:\text{缩放常数} \quad s:\text{输出像素}
 $$&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;cv2&lt;/span&gt;
@@ -277,148 +281,97 @@ $$&lt;/p&gt;
 &lt;span class=&#34;c1&#34;&gt;# Specify the data type&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;img_log&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;img_log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uint8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# Display the image&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;imshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;log_image&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;img_log&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;imshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;original_img&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;waitKey&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Exp操作：拉伸对比度&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;图像的空域和频域&#34;&gt;图像的空域和频域&lt;/h2&gt;
-&lt;h3 id=&#34;导数&#34;&gt;导数&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;一阶导数
+&lt;p&gt;cv2.imshow(&amp;lsquo;log_image&amp;rsquo;,img_log )
+cv2.imshow(&amp;lsquo;original_img&amp;rsquo;,img)
+cv2.waitKey(0)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
++ Exp操作：拉伸对比度
+
+## 图像的空域和频域
+
+### 导数
+
++ 一阶导数
 $$
-\frac{\partial I}{\partial x} = I(x+1, y) - I(x, y) \\&lt;br&gt;
+\frac{\partial I}{\partial x} = I(x+1, y) - I(x, y)
+$$
+
+$$
 \frac{\partial I}{\partial y} = I(x+1, y) - I(x, y)
-$$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;二阶导数
 $$
-\frac{\partial^2 I}{\partial x^2} = I(x+1, y) - I(x-1, y)-2f(x,y) \\&lt;br&gt;
-\frac{\partial^2 I}{\partial y^2} = I(x, y+1) - I(x, y-1)-2f(x,y) \\&lt;br&gt;
-\nabla^2I = I(x+1, y) - I(x-1, y) +I(x, y+1) - I(x, y-1)-4f(x,y)
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;根据二阶导系数得到$Laplacian \quad Filter$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;灰度化&#34;&gt;灰度化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;使得彩色图像的$R,G,B$分量相等的过程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;图像的频率&#34;&gt;图像的频率&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;表征图像中灰度变化剧烈程度的指标&lt;/li&gt;
-&lt;li&gt;灰度变化缓慢（低频）灰度变化剧烈（高频）&lt;/li&gt;
-&lt;li&gt;高频决定细节（边缘），低频决定总体形状&lt;/li&gt;
-&lt;li&gt;图像的空域乘积等于频域卷积&lt;/li&gt;
-&lt;li&gt;图像的空域卷积等于频域乘积（频域乘积：频率函数$\times$滤波函数）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;傅里叶变换&#34;&gt;傅里叶变换&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;傅里叶变换：只能获取一段信号总体上包含哪些频率成分，但是对各个成分出现的时刻不知道&lt;/li&gt;
-&lt;li&gt;无法处理非平稳信号&lt;/li&gt;
-&lt;li&gt;将图像信号分解为不同频率的正弦波，得到不同频率下正弦波的系数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;小波变换&#34;&gt;小波变换&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;短暂的震荡波（母带信号：Haar, Morlet, Daubechies）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将图像信号分解为由母带信号缩放和位移之后的一组小波，得到不同尺度小波下的系数&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-X(a, b) = \frac{1}{\sqrt{a}}\int_{-\infty}^{\infty}\psi(\frac{t-b}{a})x(t)dt\\&lt;br&gt;
-a：Sacling \quad factor \\&lt;br&gt;
-b: Time \quad shift
-$$&lt;/p&gt;
-&lt;h2 id=&#34;convolution&#34;&gt;Convolution&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Normal Conv&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;figure 
-	
-		class=&#34;gallery-image&#34; 
-		style=&#34;
-			flex-grow: 340; 
-			flex-basis: 816px&#34;
-	&gt;
-	&lt;a href=&#34;https://YPatrickW.github.io/p/key-points-in-research/Normal_conv.png&#34; data-size=&#34;1218x358&#34;&gt;
-		&lt;img src=&#34;https://YPatrickW.github.io/p/key-points-in-research/Normal_conv.png&#34;
-			width=&#34;1218&#34;
-			height=&#34;358&#34;
-			srcset=&#34;https://YPatrickW.github.io/p/key-points-in-research/Normal_conv_hu60f0f62522805502a50217a3c64549ad_18500_480x0_resize_box_3.png 480w, https://YPatrickW.github.io/p/key-points-in-research/Normal_conv_hu60f0f62522805502a50217a3c64549ad_18500_1024x0_resize_box_3.png 1024w&#34;
-			loading=&#34;lazy&#34;
-			alt=&#34;Normal Convolution&#34;&gt;
-	&lt;/a&gt;
-	
-	&lt;figcaption&gt;Normal Convolution&lt;/figcaption&gt;
-	
-&lt;/figure&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Depth-wise Conv&lt;/p&gt;
-&lt;p&gt;&lt;figure 
-	
-		class=&#34;gallery-image&#34; 
-		style=&#34;
-			flex-grow: 288; 
-			flex-basis: 692px&#34;
-	&gt;
-	&lt;a href=&#34;https://YPatrickW.github.io/p/key-points-in-research/Depth_wise_conv.png&#34; data-size=&#34;1308x453&#34;&gt;
-		&lt;img src=&#34;https://YPatrickW.github.io/p/key-points-in-research/Depth_wise_conv.png&#34;
-			width=&#34;1308&#34;
-			height=&#34;453&#34;
-			srcset=&#34;https://YPatrickW.github.io/p/key-points-in-research/Depth_wise_conv_hub9db96c6ef2df6a07a371f1e48bce385_22592_480x0_resize_box_3.png 480w, https://YPatrickW.github.io/p/key-points-in-research/Depth_wise_conv_hub9db96c6ef2df6a07a371f1e48bce385_22592_1024x0_resize_box_3.png 1024w&#34;
-			loading=&#34;lazy&#34;
-			alt=&#34;Depth-wise Convolution&#34;&gt;
-	&lt;/a&gt;
-	
-	&lt;figcaption&gt;Depth-wise Convolution&lt;/figcaption&gt;
-	
-&lt;/figure&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Point-wise Conv&lt;/p&gt;
-&lt;p&gt;&lt;figure 
-	
-		class=&#34;gallery-image&#34; 
-		style=&#34;
-			flex-grow: 270; 
-			flex-basis: 649px&#34;
-	&gt;
-	&lt;a href=&#34;https://YPatrickW.github.io/p/key-points-in-research/Point_wise_conv.png&#34; data-size=&#34;963x356&#34;&gt;
-		&lt;img src=&#34;https://YPatrickW.github.io/p/key-points-in-research/Point_wise_conv.png&#34;
-			width=&#34;963&#34;
-			height=&#34;356&#34;
-			srcset=&#34;https://YPatrickW.github.io/p/key-points-in-research/Point_wise_conv_hua22f58a578cb85964dc957bf01619d40_24887_480x0_resize_box_3.png 480w, https://YPatrickW.github.io/p/key-points-in-research/Point_wise_conv_hua22f58a578cb85964dc957bf01619d40_24887_1024x0_resize_box_3.png 1024w&#34;
-			loading=&#34;lazy&#34;
-			alt=&#34;Point-wise Convolution&#34;&gt;
-	&lt;/a&gt;
-	
-	&lt;figcaption&gt;Point-wise Convolution&lt;/figcaption&gt;
-	
-&lt;/figure&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;图像基础&#34;&gt;图像基础&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;动态范围：最大可度量灰度与最小可检测灰度之比，建立了一个系统能够表示衣服图像所具有的最低和最高灰度值
-&lt;ul&gt;
-&lt;li&gt;上限取决于饱和度，下限取决于噪声&lt;/li&gt;
-&lt;li&gt;饱和度：指一个最大值，超过这个该值的所有灰度值都将被裁剪掉&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;对比度：最高灰度和最低灰度级间的灰度差&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+
+
+
++ 二阶导数
+$$
+\frac{\partial^2 I}{\partial x^2} = I(x+1, y) - I(x-1, y)-2f(x,y)
+$$
+
+$$
+\frac{\partial^2 I}{\partial y^2} = I(x, y+1) - I(x, y-1)-2f(x,y)
+$$
+
+$$
+\nabla^2I = I(x+1, y) - I(x-1, y) +I(x, y+1) - I(x, y-1)-4f(x,y) 
+$$
+
++ 可根据二阶导系数得到$Laplacian \quad Filter$
+
+### 灰度化
+
++ 使得彩色图像的$R,G,B$分量相等的过程
+
+### 图像的频率
+
++ 表征图像中灰度变化剧烈程度的指标
++ 灰度变化缓慢（低频）灰度变化剧烈（高频）
++ 高频决定细节（边缘），低频决定总体形状
++ 图像的空域乘积等于频域卷积
++ 图像的空域卷积等于频域乘积（频域乘积：频率函数$\times$滤波函数）
+
+### 傅里叶变换
+
++ 傅里叶变换：只能获取一段信号总体上包含哪些频率成分，但是对各个成分出现的时刻不知道
++ 无法处理非平稳信号
++ 将图像信号分解为不同频率的正弦波，得到不同频率下正弦波的系数
+
+### 小波变换
+
++ 短暂的震荡波（母带信号：Haar, Morlet, Daubechies）
+
++ 将图像信号分解为由母带信号缩放和位移之后的一组小波，得到不同尺度小波下的系数
+
+
+$$
+X(a, b) = \frac{1}{\sqrt{a}}\int_{-\infty}^{\infty}\psi(\frac{t-b}{a})x(t)dt
+$$
+
+$$
+a：\text{Sacling factor} \quad b: \text{Time shift}
+$$
+
+## Convolution
+
++ Normal Conv
+
+![Normal Convolution](Normal_conv.png)
+
++ Depth-wise Conv
+
+![Depth-wise Convolution](Depth_wise_conv.png)
+
++ Point-wise Conv
+
+![Point-wise Convolution](Point_wise_conv.png)
+
+## 图像基础
+
++ 动态范围：最大可度量灰度与最小可检测灰度之比，建立了一个系统能够表示衣服图像所具有的最低和最高灰度值
++ 上限取决于饱和度，下限取决于噪声
++ 饱和度：指一个最大值，超过这个该值的所有灰度值都将被裁剪掉
++ 对比度：最高灰度和最低灰度级间的灰度差&lt;/code&gt;&lt;/pre&gt;</description>
         </item>
         <item>
         <title>常用命令合集</title>
