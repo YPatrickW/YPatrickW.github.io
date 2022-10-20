@@ -19,7 +19,7 @@
 Bed of Nails
   Max unpooling
  根据索引信息，反池化填充    Max unpooling
-Transposed Convolution (转置卷积)  对特征进行padding，然后进行卷积 Output_size = (input_size -1) * stride + filter - 2 * same padding + output padding  ![Max unpooling](Transpose Conv.png)
+Transposed Convolution (转置卷积)  对特征进行padding，然后进行卷积 Output_size = (input_size -1) * stride + filter - 2 * same padding + output padding  Transposed Convolution
 def trans_conv(X, K): h, w = K.shape Y = torch.</description>
     </item>
     

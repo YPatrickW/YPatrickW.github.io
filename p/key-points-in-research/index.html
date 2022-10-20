@@ -231,7 +231,25 @@
 <li>对特征进行padding，然后进行卷积</li>
 <li>Output_size = (input_size -1) * stride + filter - 2 * same padding + output padding</li>
 </ul>
-<p>![Max unpooling](Transpose Conv.png)</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 251; 
+			flex-basis: 602px"
+	>
+	<a href="/p/key-points-in-research/Transpose_Conv.png" data-size="633x252">
+		<img src="/p/key-points-in-research/Transpose_Conv.png"
+			width="633"
+			height="252"
+			srcset="/p/key-points-in-research/Transpose_Conv_huc1831075af5211b7b7de4534b40db14c_10429_480x0_resize_box_3.png 480w, /p/key-points-in-research/Transpose_Conv_huc1831075af5211b7b7de4534b40db14c_10429_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="Transposed Convolution">
+	</a>
+	
+	<figcaption>Transposed Convolution</figcaption>
+	
+</figure></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">trans_conv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
     <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
@@ -251,7 +269,7 @@
 <p>高斯滤波只考虑了相邻像素空间位置层面的影响，没有考虑值域的影响
 $$
 G[I]<em>p = \sum</em>{q\in S}G_\sigma(\Vert p-q \Vert)I_q \<br>
-q: \text{领域空间} \<br>
+q: \text{邻域空间} \<br>
 G_\sigma(x): 2d \text{高斯核}
 $$</p>
 </li>
@@ -290,13 +308,11 @@ $$</li>
 <li>
 <p>双边滤波器移除了部分噪声和纹理特征</p>
 </li>
-<li>
+</ul>
 <p>$$
 BF[I]<em>p = \frac{1}{W_p}\sum</em>{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q \<br>
 W_p = \sum_{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q  \<br>
 $$</p>
-</li>
-<li>
 <p><figure 
 	
 		class="gallery-image" 
@@ -316,8 +332,6 @@ $$</p>
 	<figcaption>Bilateral Filter</figcaption>
 	
 </figure></p>
-</li>
-</ul>
 <h2 id="retinex-theory">Retinex Theory</h2>
 <ul>
 <li>
@@ -337,16 +351,16 @@ $$</p>
 <p>从原始图像$S(x,y)$估计出光照分量$L(x,y)$, 从而分解出反射分量$R(x,y)$, 消除光照不均的影响</p>
 </li>
 <li>
-<p>照度估计：将图像转换到对数域对整幅图像求均值
-$$
+<p>照度估计：将图像转换到对数域对整幅图像求均值</p>
+<p>$$
 R(x,y) \approx log(I(x,y))-log(F(x,y)*I(x,y))\<br>
 *: Convolution \<br>
 F(x,y):Surrouding \quad function
 $$</p>
 </li>
 <li>
-<p>Single-scale Retinex(SSR)
-$$
+<p>Single-scale Retinex(SSR)</p>
+<p>$$
 SSR_i(x,y)=log(I_i(x,y))-log(G_\sigma*I_i(x,y))\<br>
 i \in R,G,B \<br>
 G_\sigma(x,y) = Ke^{-\frac{x^2+y^2}{2\sigma^2}}\<br>
