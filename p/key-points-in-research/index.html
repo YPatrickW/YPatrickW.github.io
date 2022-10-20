@@ -268,9 +268,11 @@
 <li>
 <p>高斯滤波只考虑了相邻像素空间位置层面的影响，没有考虑值域的影响
 $$
-G[I]<em>p = \sum</em>{q\in S}G_\sigma(\Vert p-q \Vert)I_q \\<br>
-q: \text{邻域空间} \\<br>
-G_\sigma(x): 2d \text{高斯核}
+\begin{align*}
+G[I]_p &amp;= \sum_{q\in S}G_\sigma(\Vert p-q \Vert)I_q \<br>
+q &amp;: \text{邻域空间} \<br>
+G_\sigma(x)&amp;: 2d \text{高斯核}
+\end{align*}
 $$</p>
 </li>
 </ul>
