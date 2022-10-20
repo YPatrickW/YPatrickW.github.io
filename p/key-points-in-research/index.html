@@ -268,8 +268,8 @@
 <li>
 <p>高斯滤波只考虑了相邻像素空间位置层面的影响，没有考虑值域的影响
 $$
-G[I]<em>p = \sum</em>{q\in S}G_\sigma(\Vert p-q \Vert)I_q \<br>
-q: \text{邻域空间} \<br>
+G[I]<em>p = \sum</em>{q\in S}G_\sigma(\Vert p-q \Vert)I_q \\<br>
+q: \text{邻域空间} \\<br>
 G_\sigma(x): 2d \text{高斯核}
 $$</p>
 </li>
@@ -310,8 +310,8 @@ $$</li>
 </li>
 </ul>
 <p>$$
-BF[I]<em>p = \frac{1}{W_p}\sum</em>{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q \<br>
-W_p = \sum_{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q<br>
+BF[I]<em>p = \frac{1}{W_p}\sum</em>{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q \\<br>
+W_p = \sum_{q\in S}G_{\sigma_s}(\Vert p-q \Vert)G_{\sigma_r}(\vert p-q \vert)I_q
 $$</p>
 <p><figure 
 	
@@ -353,17 +353,17 @@ $$</p>
 <li>
 <p>照度估计：将图像转换到对数域对整幅图像求均值</p>
 <p>$$
-R(x,y) \approx log(I(x,y))-log(F(x,y)*I(x,y))\<br>
-*: Convolution \<br>
+R(x,y) \approx log(I(x,y))-log(F(x,y)*I(x,y)) \\<br>
+*: Convolution \\<br>
 F(x,y):Surrouding \quad function
 $$</p>
 </li>
 <li>
 <p>Single-scale Retinex(SSR)</p>
 <p>$$
-SSR_i(x,y)=log(I_i(x,y))-log(G_\sigma*I_i(x,y))\<br>
-i \in R,G,B \<br>
-G_\sigma(x,y) = Ke^{-\frac{x^2+y^2}{2\sigma^2}}\<br>
+SSR_i(x,y)=log(I_i(x,y))-log(G_\sigma*I_i(x,y))\\<br>
+i \in R,G,B \\<br>
+G_\sigma(x,y) = Ke^{-\frac{x^2+y^2}{2\sigma^2}}\\<br>
 \int\int G_\sigma(x,y)dxdy =1
 $$</p>
 </li>
@@ -399,9 +399,9 @@ $$</p>
 <li>
 <p>Log 操作：压缩图像对比度，使图像变得模糊
 $$
-s = c * log(1+r)\\\<br>
-c = 255/(log(1+max(r)))\\\<br>
-r: 输入像素 \quad c:缩放常数 \quad s:输出像素
+s = c * log(1+r) \\<br>
+c = 255/(log(1+max(r))) \\<br>
+r: \text{输入像素} \quad c:\text{缩放常数} \quad s:\text{输出像素}
 $$</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -426,15 +426,15 @@ $$</p>
 <li>
 <p>一阶导数
 $$
-\frac{\partial I}{\partial x} = I(x+1, y) - I(x, y) \<br>
+\frac{\partial I}{\partial x} = I(x+1, y) - I(x, y) \\<br>
 \frac{\partial I}{\partial y} = I(x+1, y) - I(x, y)
 $$</p>
 </li>
 <li>
 <p>二阶导数
 $$
-\frac{\partial^2 I}{\partial x^2} = I(x+1, y) - I(x-1, y)-2f(x,y) \<br>
-\frac{\partial^2 I}{\partial y^2} = I(x, y+1) - I(x, y-1)-2f(x,y) \<br>
+\frac{\partial^2 I}{\partial x^2} = I(x+1, y) - I(x-1, y)-2f(x,y) \\<br>
+\frac{\partial^2 I}{\partial y^2} = I(x, y+1) - I(x, y-1)-2f(x,y) \\<br>
 \nabla^2I = I(x+1, y) - I(x-1, y) +I(x, y+1) - I(x, y-1)-4f(x,y)
 $$</p>
 <ul>
@@ -470,8 +470,8 @@ $$</p>
 </li>
 </ul>
 <p>$$
-X(a, b) = \frac{1}{\sqrt{a}}\int_{-\infty}^{\infty}\psi(\frac{t-b}{a})x(t)dt\<br>
-a：Sacling \quad factor \<br>
+X(a, b) = \frac{1}{\sqrt{a}}\int_{-\infty}^{\infty}\psi(\frac{t-b}{a})x(t)dt\\<br>
+a：Sacling \quad factor \\<br>
 b: Time \quad shift
 $$</p>
 <h2 id="convolution">Convolution</h2>
